@@ -50,7 +50,24 @@ void printArray(int a[SIZE][SIZE], int m, int n)
 void Ex3(int in_arr[], int n){
 	int a[SIZE][SIZE];
 	Array2Dconverter(in_arr,a,n,n);
-	//Your codes here
+	for(int i = 0; i < n; i++){
+		for(int j = i + 1; j < n; j++){
+			if(a[j][j] < a[i][i]){
+				int t = a[j][j];
+				a[j][j] = a[i][i];
+				a[i][i] = t;
+			}
+		}
+	}
+	for(int i = 0; i < n; i++){
+		for(int j = i + 1; j < n; j++){
+			if(a[n - j - 1][j] > a[n - i - 1][i]){
+				int t = a[n - j - 1][j];
+				a[n - j - 1][j] = a[n - i - 1][i];
+				a[n- i - 1][i] = t;
+			}
+		}
+	}
 	
 	printArray(a,n,n);
 }
